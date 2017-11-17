@@ -1,0 +1,29 @@
+<div class='panel panel-primary' *ngIf='blog'>
+  <div class='panel-heading' align="center">
+    <h3>{{blog.title}}</h3>
+  </div>
+  <div class='panel-body'>
+    <div class="col-md-12">
+      <div style="text-align: center; margin: 20px">
+        {{blog.contents}}
+      </div>
+    </div>
+    <div class='col-md-12' style="margin-top: 50px">
+      <div class='row'>
+        <div class="col-md-6">
+          <b class='col-md-2'>Category:</b>
+          <div class='col-md-2'>{{blog.category}}</div>
+        </div>
+        <div class="col-md-6">
+          <b class='col-md-2'>Posted on:</b>
+          <div class='col-md-4'>{{blog.date | date:'fullDate'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-default" (click)="onBack()" style="width: 80px">
+      <i class="glyphicon glyphicon-chevron-left"></i>Back
+    </a>
+  </div>
+</div>

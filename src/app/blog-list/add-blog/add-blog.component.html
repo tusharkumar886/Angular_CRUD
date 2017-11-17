@@ -1,0 +1,45 @@
+<div class="section-content">
+  <h1 class="section-header">
+    <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s">
+      {{pageTitle}}
+    </span>
+  </h1>
+</div>
+<div class="contact-section">
+  <div class="container">
+    <form>
+      <div class="col-md-6 form-line">
+        <div>
+          <a class="btn btn-default" (click)="onBack()" style="margin-bottom: 20px">
+            <i class="glyphicon glyphicon-chevron-left"></i>Back
+          </a>
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="email" class="form-control" name="title" [(ngModel)]="blog.title" id="title"
+                 placeholder="Enter Title">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" #t (change)="callType(t.value)" id="category" name="category"
+                  [(ngModel)]="blog.category">
+            <option *ngFor="let type of types">{{type}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="description">Content</label>
+          <textarea class="form-control" id="description" name="contents" [(ngModel)]="blog.contents"
+                    placeholder="Enter Your Blog Content"></textarea>
+        </div>
+        <div>
+          <a class="btn btn-primary" (click)="checkBlog(blog)" style="margin-top: 20px; float: right;">
+            Send Blog<i class="glyphicon glyphicon-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="panel panel-primary">
+  <div class="panel-heading" align="center">
+    {{pageTitle}}
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <!--<div class="col-md-2"></div>-->
+      <div class="col-md-6">
+        <label class="col-md-2" for="search">Search</label>
+        <input class="col-md-2 form-control" id="search" type="text" [(ngModel)]='listFilter' placeholder="Title"/>
+      </div>
+      <div class="col-md-2">
+        <label for="category">Category</label>
+        <select class="form-control" #t (change)="callType(t.value)" id="category" name="category"
+                [(ngModel)]="category">
+          <option *ngFor="let type of types">{{type}}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-primary" (click)="addBlog()" style="float: right">
+          <i class="glyphicon glyphicon-plus"></i>
+          <i class="glyphicon glyphicon-list"></i>
+          Add Blog
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6" *ngIf="listFilter != null">
+        <h3>Search Results: {{listFilter}}</h3>
+      </div>
+    </div>
+    <div class="table-responsive" style='margin-top: 100px'>
+      <table class="table" *ngIf="blogs && blogs.length">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let blog of filteredBlogs; let i=index">
+          <td><a [routerLink]="['/blogdetails',blog.id]">{{blog.title}}</a></td>
+          <td>{{blog.category | lowercase}}</td>
+          <td>{{blog.date | date:'fullDate'}}</td>
+          <td>{{blog.author | uppercase}}</td>
+          <td>
+            <button type="button" class="btn btn-success glyphicon glyphicon-edit"
+            (click)="editBlog(blog.id)"></button>
+          </td>
+          <td>
+            <button type="button"
+                    class="btn btn-danger glyphicon glyphicon-remove"
+                    (click)="deleteBlog(blog.id,i)"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

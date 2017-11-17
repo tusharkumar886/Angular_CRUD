@@ -1,6 +1,6 @@
 # MyBlog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+This project is a CRUD based Angular application for blogs.
 
 ## Development server
 
