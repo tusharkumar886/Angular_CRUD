@@ -37,6 +37,7 @@
           <th>Category</th>
           <th>Date</th>
           <th>Author</th>
+          <th>Rating</th>
         </tr>
         </thead>
         <tbody>
@@ -46,8 +47,11 @@
           <td>{{blog.date | date:'fullDate'}}</td>
           <td>{{blog.author | uppercase}}</td>
           <td>
+            <blog-fav-blogs [rating]="blog.rating"></blog-fav-blogs>
+          </td>
+          <td>
             <button type="button" class="btn btn-success glyphicon glyphicon-edit"
-            (click)="editBlog(blog.id)"></button>
+                    (click)="editBlog(blog.id)"></button>
           </td>
           <td>
             <button type="button"

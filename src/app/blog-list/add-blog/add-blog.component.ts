@@ -18,6 +18,7 @@ export class AddBlogComponent implements OnInit {
     'contents': '',
     'category': '',
     'date': new Date(),
+    "rating":4.0,
     'author': 'Tushar'
   };
 

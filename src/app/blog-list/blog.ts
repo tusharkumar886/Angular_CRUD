@@ -4,5 +4,6 @@ export interface IBlog {
   contents: string;
   category: string;
   date: Date;
+  rating: number;
   author: string;
 }

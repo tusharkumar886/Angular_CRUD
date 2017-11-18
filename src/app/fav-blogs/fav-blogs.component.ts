@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'blog-fav-blogs',
   templateUrl: './fav-blogs.component.html',
   styleUrls: ['./fav-blogs.component.css']
 })
-export class FavBlogsComponent implements OnInit {
+export class FavBlogsComponent implements OnChanges {
+  @Input() rating: number;
+  starWidth: number;
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {
+  ngOnChanges(): void {
+    this.starWidth = this.rating * 86 / 5;
   }
 
 }
